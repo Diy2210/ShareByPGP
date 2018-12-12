@@ -17,7 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CreateKeyActivity extends AppCompatActivity {
+public class AddFileActivity extends AppCompatActivity {
 
     private EditText nameET;
     private EditText emailET;
@@ -55,7 +55,7 @@ public class CreateKeyActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(CreateKeyActivity.this);
+                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(AddFileActivity.this);
                 builder.setCancelable(false);
                 builder.setMessage(R.string.message_create_key);
                 builder.setPositiveButton(R.string.ok_button,
@@ -66,12 +66,12 @@ public class CreateKeyActivity extends AppCompatActivity {
                                 String name = nameET.getText().toString();
                                 String email = emailET.getText().toString();
                                 String file = fileTV.getText().toString();
-                                SQLHelper sqlHelper = new SQLHelper(CreateKeyActivity.this);
+                                SQLHelper sqlHelper = new SQLHelper(AddFileActivity.this);
                                 sqlHelper.insertCounterDetails(time, name, email, file);
                                 progressBar.setVisibility(ProgressBar.VISIBLE);
                                 constraintLayoutContent.setVisibility(View.GONE);
                                 Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(CreateKeyActivity.this, MainActivity.class));
+                                startActivity(new Intent(AddFileActivity.this, MainActivity.class));
                             }
                         })
                         .setNegativeButton(R.string.cancel_button,

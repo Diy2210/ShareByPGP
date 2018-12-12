@@ -29,22 +29,11 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateKeyActivity"
+            android:name=".AddFileActivity"
             android:label="@string/create_key"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <!--<activity-->
-            <!--android:name=".KeyDetailsActivity"-->
-            <!--android:label="@string/list_keys"-->
-            <!--android:parentActivityName=".CreateKeyActivity"-->
-            <!--android:screenOrientation="portrait"-->
-            <!--android:theme="@style/AppTheme" />-->
-        <!--<activity-->
-            <!--android:name=".AddFolderActivity"-->
-            <!--android:label="@string/create_new_folder"-->
-            <!--android:screenOrientation="portrait"-->
-            <!--android:theme="@style/AppTheme" />-->
         <activity
             android:name=".TransferFileActivity"
             android:label="@string/transfer_file"

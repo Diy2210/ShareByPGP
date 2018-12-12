@@ -21,7 +21,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -116,9 +115,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_new_file) {
-            startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
+            startActivity(new Intent(MainActivity.this, AddFileActivity.class));
         } else if (id == R.id.nav_encrypt) {
-                startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
+                startActivity(new Intent(MainActivity.this, AddFileActivity.class));
         } else if (id == R.id.nav_refresh) {
             recreate();
         } else if (id == R.id.nav_about) {
