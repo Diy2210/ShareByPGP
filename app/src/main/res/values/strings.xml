@@ -8,12 +8,12 @@
     <string name="action_search">Search</string>
 
     <string name="email">E-mail:</string>
-    <string name="password">Пароль</string>
-    <string name="forgot_password">Забыли пароль?</string>
-    <string name="remember_me">Запомнить меня</string>
-    <string name="enter">Войти</string>
-    <string name="enter_social">Войти с помощью соц. сетей:</string>
-    <string name="register">Регистрация</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="enter">Login</string>
+    <string name="enter_social">Login using social networks:</string>
+    <string name="register">Register</string>
 
     <string name="nav_new_file">New File</string>
     <string name="nav_new_folder">New Folder</string>
@@ -32,7 +32,6 @@
     <string name="message_create_folder">Create new folder?</string>
     <string name="empty_list">Empty list</string>
 
-
     <string name="key_name">Key Name</string>
     <string name="create_key">Create key</string>
     <string name="list_keys">List keys</string>
@@ -42,7 +41,8 @@
     <string name="ver_app">ver. 1.01</string>
     <string name="author">Author by Diy2210</string>
 
-    <string name="title_create_key">Specify the name and email to create a key</string>
+    <string name="title_create_key">Specify the name, email and choose file to create a key</string>
+    <string name="choose_file">Choose file</string>
     <string name="title_create_folder">Add a name for the new folder</string>
 
     <string-array name="folders">

@@ -8,12 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateKeyActivity extends AppCompatActivity {
 
     private EditText nameET;
     private EditText emailET;
+    private TextView fileTV;
     private Button nextBtn;
+    private Button chooseFileBtn;
+    private String fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +27,10 @@ public class CreateKeyActivity extends AppCompatActivity {
 
         nameET = findViewById(R.id.nameET);
         emailET = findViewById(R.id.emailET);
-
+        fileTV = findViewById(R.id.fileTV);
+        chooseFileBtn = findViewById(R.id.chooseFileBtn);
         nextBtn = findViewById(R.id.nextBtn);
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,5 +55,30 @@ public class CreateKeyActivity extends AppCompatActivity {
                         ).show();
             }
         });
+
+        chooseFileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("*/*");
+                startActivityForResult(intent, 100);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        switch (requestCode) {
+            case 100:
+                if (resultCode == RESULT_OK) {
+                    fileName = data.getData().getPath();
+                    fileTV.setVisibility(View.VISIBLE);
+                    chooseFileBtn.setVisibility(View.GONE);
+                    fileTV.setText(fileName);
+                    Toast.makeText(CreateKeyActivity.this, fileName, Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
     }
 }
