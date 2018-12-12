@@ -114,18 +114,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_new_file) {
             startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
-        } else if (id == R.id.nav_new_folder) {
-            startActivity(new Intent(MainActivity.this, AddFolderActivity.class));
+//        } else if (id == R.id.nav_new_folder) {
+//            startActivity(new Intent(MainActivity.this, AddFolderActivity.class));
+        } else if (id == R.id.nav_encrypt) {
+                startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
         } else if (id == R.id.nav_refresh) {
             recreate();
         }
-        else if (id == R.id.nav_sort) {
-        }
-        else if (id == R.id.nav_recycle) {
-        }
-        else if (id == R.id.nav_encrypt) {
-            startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
-        }
+//        else if (id == R.id.nav_sort) {
+//        }
+//        else if (id == R.id.nav_recycle) {
+//        }
         else if (id == R.id.nav_about) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             LayoutInflater inflater = getLayoutInflater();

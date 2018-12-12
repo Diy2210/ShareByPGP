@@ -95,7 +95,6 @@ public class CreateKeyActivity extends AppCompatActivity {
                     fileTV.setVisibility(View.VISIBLE);
                     chooseFileBtn.setVisibility(View.GONE);
                     fileTV.setText(fileName);
-                    Toast.makeText(CreateKeyActivity.this, fileName, Toast.LENGTH_LONG).show();
                 }
                 break;
         }
