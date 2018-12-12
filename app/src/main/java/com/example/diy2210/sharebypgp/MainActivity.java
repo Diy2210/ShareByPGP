@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 builder.setPositiveButton(R.string.ok_button,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(MainActivity.this, TransferFileActivity.class));
                             }
                         })
                         .setNegativeButton(R.string.cancel_button,

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.diy2210.sharebypgp">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -31,18 +31,24 @@
         <activity
             android:name=".CreateKeyActivity"
             android:label="@string/create_key"
-            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".KeyDetailsActivity"
-            android:label="@string/list_keys"
             android:screenOrientation="portrait"
-            android:parentActivityName=".CreateKeyActivity"
             android:theme="@style/AppTheme" />
+        <!--<activity-->
+            <!--android:name=".KeyDetailsActivity"-->
+            <!--android:label="@string/list_keys"-->
+            <!--android:parentActivityName=".CreateKeyActivity"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/AppTheme" />-->
+        <!--<activity-->
+            <!--android:name=".AddFolderActivity"-->
+            <!--android:label="@string/create_new_folder"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/AppTheme" />-->
         <activity
-            android:name=".AddFolderActivity"
-            android:label="@string/create_new_folder"
+            android:name=".TransferFileActivity"
+            android:label="@string/transfer_file"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"/>
     </application>

@@ -26,7 +26,7 @@
 
     <string name="ok_button">Ok</string>
     <string name="next_button">Next</string>
-    <string name="transfer_button">Save and transfer</string>
+    <string name="transfer_button">Save</string>
     <string name="cancel_button">Cancel</string>
     <string name="message_logout">Do you want to logout?</string>
     <string name="message_create_key">Create key and transfer?</string>
@@ -34,8 +34,8 @@
     <string name="message_transfer_file">Transfer this file?</string>
     <string name="empty_list">Empty list</string>
 
-    <string name="key_name">Key Name</string>
-    <string name="create_key">Create key</string>
+    <string name="key_name">Name</string>
+    <string name="create_key">Create new file</string>
     <string name="list_keys">List keys</string>
     <string name="create_new_folder">Create new folder</string>
     <string name="new_folder">New folder</string>
@@ -43,9 +43,13 @@
     <string name="ver_app">ver. 1.01</string>
     <string name="author">Author by Diy2210</string>
 
-    <string name="title_create_key">Add name, email and choose file to create a key</string>
+    <string name="title_create_key">Add name, email and choose file</string>
     <string name="choose_file">Choose file</string>
     <string name="title_create_folder">Add a name for the new folder</string>
     <string name="transfer">Transfer</string>
+    <string name="transfer_file">Transfer file</string>
+
+    <string name="choose_user">Select a user from the list to send the file</string>
+    <string name="message_transfer">Send file to this user?</string>
 
 </resources>
