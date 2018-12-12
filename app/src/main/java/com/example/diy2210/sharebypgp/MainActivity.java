@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AlertDialog dialog;
     private ListView listView;
     private ConstraintLayout emptyCL;
+    private ConstraintLayout constraintLayoutContent;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,18 +117,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         if (id == R.id.nav_new_file) {
             startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
-//        } else if (id == R.id.nav_new_folder) {
-//            startActivity(new Intent(MainActivity.this, AddFolderActivity.class));
         } else if (id == R.id.nav_encrypt) {
                 startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
         } else if (id == R.id.nav_refresh) {
             recreate();
-        }
-//        else if (id == R.id.nav_sort) {
-//        }
-//        else if (id == R.id.nav_recycle) {
-//        }
-        else if (id == R.id.nav_about) {
+        } else if (id == R.id.nav_about) {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             LayoutInflater inflater = getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.about_app, null);
