@@ -43,7 +43,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         googleBtn = findViewById(R.id.googleBtn);
         constraintLayoutContent = findViewById(R.id.constraintLayoutContent);
         progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(ProgressBar.GONE);
 
         passwordBtn.setPaintFlags(passwordBtn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         registerBtn.setPaintFlags(registerBtn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);

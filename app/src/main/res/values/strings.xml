@@ -41,7 +41,7 @@
     <string name="ver_app">ver. 1.01</string>
     <string name="author">Author by Diy2210</string>
 
-    <string name="title_create_key">Specify the name, email and choose file to create a key</string>
+    <string name="title_create_key">Add name, email and choose file to create a key</string>
     <string name="choose_file">Choose file</string>
     <string name="title_create_folder">Add a name for the new folder</string>
 
