@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_new_file"
+            android:title="@string/nav_new_file" />
+        <item
+            android:id="@+id/nav_new_folder"
+            android:title="@string/nav_new_folder" />
+        <item
+            android:id="@+id/nav_refresh"
+            android:title="@string/nav_refresh" />
+        <item
+            android:id="@+id/nav_sort"
+            android:title="@string/nav_sort" />
+        <item
+            android:id="@+id/nav_recycle"
+            android:title="@string/nav_recycle" />
+        <item
+            android:id="@+id/nav_encrypt"
+            android:title="@string/nav_encrypt" />
+        <item
+            android:id="@+id/nav_about"
+            android:title="@string/nav_about" />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/nav_logout" />
+    </group>
+</menu>

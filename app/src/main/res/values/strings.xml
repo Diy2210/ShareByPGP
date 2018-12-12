@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Share.ByPGP</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Search</string>
+
+    <string name="email">E-mail:</string>
+    <string name="password">Пароль</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="remember_me">Запомнить меня</string>
+    <string name="enter">Войти</string>
+    <string name="enter_social">Войти с помощью соц. сетей:</string>
+    <string name="register">Регистрация</string>
+
+    <string name="nav_new_file">New File</string>
+    <string name="nav_new_folder">New Folder</string>
+    <string name="nav_refresh">Refresh</string>
+    <string name="nav_sort">Sort by</string>
+    <string name="nav_recycle">Recycle bin</string>
+    <string name="nav_encrypt">Encrypt &amp; Transfer menu</string>
+    <string name="nav_about">About app</string>
+    <string name="nav_logout">Logout</string>
+
+    <string name="ok_button">Ok</string>
+    <string name="next_button">Next</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="message_logout">Do you want to logout?</string>
+    <string name="message_create_key">Create key?</string>
+    <string name="message_create_folder">Create new folder?</string>
+    <string name="empty_list">Empty list</string>
+
+
+    <string name="key_name">Key Name</string>
+    <string name="create_key">Create key</string>
+    <string name="list_keys">List keys</string>
+    <string name="create_new_folder">Create new folder</string>
+    <string name="new_folder">New folder</string>
+
+    <string name="ver_app">ver. 1.01</string>
+    <string name="author">Author by Diy2210</string>
+
+    <string name="title_create_key">Specify the name and email to create a key</string>
+    <string name="title_create_folder">Add a name for the new folder</string>
+
+    <string-array name="folders">
+        <item>Alarms</item>
+        <item>Android</item>
+        <item>DCIM</item>
+        <item>Download</item>
+        <item>Pictures</item>
+        <item>Rings</item>
+        <item>Music</item>
+    </string-array>
+
+    <string-array name="size">
+        <item>0 Mb</item>
+        <item>2.1 Mb</item>
+        <item>170.5 Mb</item>
+        <item>21 Mb</item>
+        <item>0 Mb</item>
+        <item>0 Mb</item>
+        <item>10.2 Mb</item>
+    </string-array>
+
+</resources>
