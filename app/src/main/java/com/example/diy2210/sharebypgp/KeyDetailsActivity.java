@@ -7,32 +7,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class AddFolderActivity extends AppCompatActivity {
+public class KeyDetailsActivity extends AppCompatActivity {
 
-    private EditText nameET;
-    private Button nextBtn;
+    private Button transferBtn;
+    private TextView nameTV;
+    private TextView emailTV;
+    private TextView fileTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_folder);
+        setContentView(R.layout.activity_key_details);
 
-        nameET = findViewById(R.id.nameET);
-        nextBtn = findViewById(R.id.nextBtn);
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        transferBtn = findViewById(R.id.transferBtn);
+        transferBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(AddFolderActivity.this);
+                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(KeyDetailsActivity.this);
                 builder.setCancelable(false);
-                builder.setMessage(R.string.message_create_folder);
+                builder.setMessage(R.string.message_transfer_file);
                 builder.setPositiveButton(R.string.ok_button,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Intent intent = new Intent(AddFolderActivity.this, KeyDetailsActivity.class);
-                                intent.putExtra("name", nameET.getText().toString());
-                                startActivity(intent);
+                                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+//                                startActivity(new Intent(CreateKeyActivity.this, MainActivity.class));
                             }
                         })
                         .setNegativeButton(R.string.cancel_button,
@@ -42,6 +43,7 @@ public class AddFolderActivity extends AppCompatActivity {
                                     }
                                 }
                         ).show();
+
             }
         });
     }

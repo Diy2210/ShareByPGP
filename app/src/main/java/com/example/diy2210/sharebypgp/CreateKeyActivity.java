@@ -3,13 +3,19 @@ package com.example.diy2210.sharebypgp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class CreateKeyActivity extends AppCompatActivity {
 
@@ -19,17 +25,32 @@ public class CreateKeyActivity extends AppCompatActivity {
     private Button nextBtn;
     private Button chooseFileBtn;
     private String fileName;
+    private DateFormat dateFormat;
+    private ConstraintLayout constraintLayoutContent;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_key);
 
+        dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         nameET = findViewById(R.id.nameET);
         emailET = findViewById(R.id.emailET);
         fileTV = findViewById(R.id.fileTV);
         chooseFileBtn = findViewById(R.id.chooseFileBtn);
         nextBtn = findViewById(R.id.nextBtn);
+        constraintLayoutContent = findViewById(R.id.constraintLayoutContent);
+        progressBar = findViewById(R.id.progressBar);
+
+        chooseFileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("*/*");
+                startActivityForResult(intent, 100);
+            }
+        });
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,10 +61,17 @@ public class CreateKeyActivity extends AppCompatActivity {
                 builder.setPositiveButton(R.string.ok_button,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                Intent intent = new Intent(CreateKeyActivity.this, ListKeysActivity.class);
-                                intent.putExtra("name", nameET.getText().toString());
-                                intent.putExtra("email", emailET.getText().toString());
-                                startActivity(intent);
+                                Date date = new Date();
+                                String time = dateFormat.format(date)+"\n";
+                                String name = nameET.getText().toString();
+                                String email = emailET.getText().toString();
+                                String file = fileTV.getText().toString();
+                                SQLHelper sqlHelper = new SQLHelper(CreateKeyActivity.this);
+                                sqlHelper.insertCounterDetails(time, name, email, file);
+                                progressBar.setVisibility(ProgressBar.VISIBLE);
+                                constraintLayoutContent.setVisibility(View.GONE);
+                                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+                                startActivity(new Intent(CreateKeyActivity.this, MainActivity.class));
                             }
                         })
                         .setNegativeButton(R.string.cancel_button,
@@ -53,15 +81,6 @@ public class CreateKeyActivity extends AppCompatActivity {
                                     }
                                 }
                         ).show();
-            }
-        });
-
-        chooseFileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
-                startActivityForResult(intent, 100);
             }
         });
     }

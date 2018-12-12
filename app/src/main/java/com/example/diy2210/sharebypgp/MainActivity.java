@@ -15,13 +15,20 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+import java.util.HashMap;
 
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private SQLHelper sqlHelper;
+    private ListAdapter adapter;
     private AlertDialog dialog;
     private ListView listView;
     private ConstraintLayout emptyCL;
@@ -46,6 +53,34 @@ public class MainActivity extends AppCompatActivity
         listView = findViewById(R.id.listview);
         listView.setEmptyView(emptyCL);
 
+        sqlHelper = new SQLHelper(this);
+        ArrayList<HashMap<String, String>> keyList = sqlHelper.GetKeys();
+        adapter = new SimpleAdapter(MainActivity.this, keyList, R.layout.list_item,
+                new String[]{"time", "name", "email", "file"},
+                new int[]{R.id.timeTV, R.id.nameTV, R.id.emailTV, R.id.fileTV});
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AlertDialog.Builder builder = new android.app.AlertDialog.Builder(MainActivity.this);
+                builder.setCancelable(false);
+                builder.setMessage(R.string.message_transfer_file);
+                builder.setPositiveButton(R.string.ok_button,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_LONG).show();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel_button,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int whichButton) {
+                                        dialog.dismiss();
+                                    }
+                                }
+                        ).show();
+            }
+        });
     }
 
     @Override
@@ -78,10 +113,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_new_file) {
-            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-            intent.setType("*/*");
-            startActivityForResult(intent, 7);
-
+            startActivity(new Intent(MainActivity.this, CreateKeyActivity.class));
         } else if (id == R.id.nav_new_folder) {
             startActivity(new Intent(MainActivity.this, AddFolderActivity.class));
         } else if (id == R.id.nav_refresh) {
@@ -133,18 +165,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
-        switch (requestCode) {
-            case 7:
-                if (resultCode == RESULT_OK) {
-                    String PathHolder = data.getData().getPath();
-                    Toast.makeText(MainActivity.this, PathHolder, Toast.LENGTH_LONG).show();
-                }
-                break;
-        }
     }
 }

@@ -26,10 +26,12 @@
 
     <string name="ok_button">Ok</string>
     <string name="next_button">Next</string>
+    <string name="transfer_button">Save and transfer</string>
     <string name="cancel_button">Cancel</string>
     <string name="message_logout">Do you want to logout?</string>
-    <string name="message_create_key">Create key?</string>
+    <string name="message_create_key">Create key and transfer?</string>
     <string name="message_create_folder">Create new folder?</string>
+    <string name="message_transfer_file">Transfer this file?</string>
     <string name="empty_list">Empty list</string>
 
     <string name="key_name">Key Name</string>
@@ -44,25 +46,6 @@
     <string name="title_create_key">Add name, email and choose file to create a key</string>
     <string name="choose_file">Choose file</string>
     <string name="title_create_folder">Add a name for the new folder</string>
-
-    <string-array name="folders">
-        <item>Alarms</item>
-        <item>Android</item>
-        <item>DCIM</item>
-        <item>Download</item>
-        <item>Pictures</item>
-        <item>Rings</item>
-        <item>Music</item>
-    </string-array>
-
-    <string-array name="size">
-        <item>0 Mb</item>
-        <item>2.1 Mb</item>
-        <item>170.5 Mb</item>
-        <item>21 Mb</item>
-        <item>0 Mb</item>
-        <item>0 Mb</item>
-        <item>10.2 Mb</item>
-    </string-array>
+    <string name="transfer">Transfer</string>
 
 </resources>
