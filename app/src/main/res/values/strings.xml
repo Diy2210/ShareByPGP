@@ -29,7 +29,7 @@
     <string name="transfer_button">Save</string>
     <string name="cancel_button">Cancel</string>
     <string name="message_logout">Do you want to logout?</string>
-    <string name="message_create_key">Create key and transfer?</string>
+    <string name="message_create_key">Create file?</string>
     <string name="message_create_folder">Create new folder?</string>
     <string name="message_transfer_file">Transfer this file?</string>
     <string name="empty_list">Empty list</string>
