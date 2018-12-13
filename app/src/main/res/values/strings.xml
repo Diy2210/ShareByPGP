@@ -52,4 +52,6 @@
     <string name="choose_user">Select a user from the list to send the file</string>
     <string name="message_transfer">Send file to this user?</string>
 
+    <string name="click_back_exit">Please click BACK again to exit application</string>
+
 </resources>

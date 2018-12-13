@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Checkable;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,6 +26,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private Button googleBtn;
     private ProgressBar progressBar;
     private ConstraintLayout constraintLayoutContent;
+    private static long back_pressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //TODO
             }
         });
     }
@@ -86,6 +88,16 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void startActivity() {
         constraintLayoutContent.setVisibility(View.GONE);
         progressBar.setVisibility(ProgressBar.VISIBLE);
-        startActivity(new Intent(SignInActivity.this, MainActivity.class));
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    // Back Button Exit App
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
+        Toast.makeText(this, R.string.click_back_exit, Toast.LENGTH_LONG).show();
+        back_pressed = System.currentTimeMillis();
     }
 }

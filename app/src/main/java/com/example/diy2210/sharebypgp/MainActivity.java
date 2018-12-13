@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ConstraintLayout emptyCL;
     private ConstraintLayout constraintLayoutContent;
     private ProgressBar progressBar;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,16 +85,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         ).show();
             }
         });
+
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddFileActivity.class));
+            }
+        });
     }
 
     @Override
     public void onBackPressed() {
+        if (!closeDrawer()) {
+            super.onBackPressed();
+        }
+    }
+
+    private boolean closeDrawer() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+            return true;
         }
+        return false;
     }
 
     @Override
@@ -117,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_new_file) {
             startActivity(new Intent(MainActivity.this, AddFileActivity.class));
         } else if (id == R.id.nav_encrypt) {
-                startActivity(new Intent(MainActivity.this, AddFileActivity.class));
+            startActivity(new Intent(MainActivity.this, AddFileActivity.class));
         } else if (id == R.id.nav_refresh) {
             recreate();
         } else if (id == R.id.nav_about) {
@@ -144,7 +160,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             builder.setPositiveButton(R.string.ok_button,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
-                            startActivity(new Intent(MainActivity.this, SignInActivity.class));
+                            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
                         }
                     })
                     .setNegativeButton(R.string.cancel_button,
